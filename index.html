@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0e17">
+  <meta name="description" content="Read how Bloxd Fanatic, a Discord moderation bot for the official Bloxd Discord server, accesses, uses, protects, and handles moderation-related data.">
+  <title>Privacy Policy · Bloxd Fanatic</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0e17;
+      --panel: #111625;
+      --panel-2: #151b2c;
+      --stroke: #252d40;
+      --text: #eff2ff;
+      --muted: #a0acc2;
+      --subtle: #71809b;
+      --accent: #9d9bff;
+      --accent-2: #64d7de;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body::before { content: ""; pointer-events: none; position: absolute; inset: 0 0 auto 0; height: 560px; z-index: -1; background: radial-gradient(ellipse 65% 75% at 75% 5%, rgba(102,88,216,.16), transparent 75%), radial-gradient(ellipse 45% 65% at 14% 10%, rgba(42,151,183,.10), transparent 78%); }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 4px; border-radius: 4px; }
+    .wrap { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
+    .topbar { border-bottom: 1px solid rgba(255,255,255,.07); background: rgba(11,14,23,.86); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 20; }
+    .topbar-inner { display: flex; justify-content: space-between; align-items: center; min-height: 72px; gap: 16px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.025em; text-decoration: none; }
+    .logo { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 12px; background: linear-gradient(140deg, #918aff, #5bc6db); color: #0a0d18; font-size: 15px; font-weight: 900; letter-spacing: -.08em; box-shadow: 0 6px 22px rgba(121,116,252,.14); }
+    .top-link { text-decoration: none; color: var(--muted); border: 1px solid var(--stroke); border-radius: 10px; padding: 7px 13px; font-size: 13px; font-weight: 600; transition: color .15s, border-color .15s; }
+    .top-link:hover { color: white; border-color: #6b7199; }
+    .hero { padding: 80px 0 54px; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 5px 12px; border-radius: 99px; border: 1px solid rgba(157,155,255,.24); background: rgba(157,155,255,.075); color: #b4b4ff; font-size: 12px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 3px rgba(100,215,222,.12); }
+    h1 { max-width: 850px; margin: 21px 0 15px; font-size: clamp(2.65rem, 6.4vw, 4.7rem); line-height: 1.09; font-weight: 810; letter-spacing: -.065em; }
+    .gradient { color: #b3b0ff; }
+    .intro { max-width: 700px; margin: 0; font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--muted); line-height: 1.7; }
+    .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 11px; margin-top: 28px; font-size: 13px; color: var(--muted); }
+    .meta span { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--stroke); padding: 7px 11px; border-radius: 9px; background: rgba(255,255,255,.025); }
+    .layout { display: grid; grid-template-columns: 237px minmax(0,1fr); gap: 54px; padding-top: 49px; padding-bottom: 92px; }
+    aside { min-width: 0; }
+    .toc { position: sticky; top: 106px; }
+    .toc-label { display: block; margin: 0 0 16px 11px; font-size: 11px; color: var(--subtle); font-weight: 800; text-transform: uppercase; letter-spacing: .16em; }
+    .toc nav { display: grid; gap: 3px; }
+    .toc a { display: block; padding: 8px 11px; color: var(--muted); font-size: 13px; line-height: 1.4; text-decoration: none; border-radius: 8px; transition: .15s; }
+    .toc a:hover, .toc a:focus-visible { background: rgba(157,155,255,.10); color: #dfdeff; }
+    .aside-note { border: 1px solid var(--stroke); background: var(--panel); padding: 18px; border-radius: 14px; margin-top: 30px; }
+    .aside-note .note-icon { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: rgba(100,215,222,.1); color: var(--accent-2); font-weight: 800; margin-bottom: 9px; }
+    .aside-note strong { display: block; font-size: 13px; }
+    .aside-note p { margin: 5px 0 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
+    main { min-width: 0; }
+    .section { scroll-margin-top: 100px; padding: 0 0 32px; margin-bottom: 32px; border-bottom: 1px solid var(--stroke); }
+    .section:last-of-type { border-bottom: 0; margin-bottom: 0; }
+    .section-head { display: flex; align-items: baseline; gap: 13px; margin-bottom: 12px; }
+    .num { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .06em; }
+    h2 { font-size: clamp(1.35rem, 2.5vw, 1.63rem); letter-spacing: -.035em; line-height: 1.35; font-weight: 780; margin: 0; }
+    p { margin: 0 0 13px; }
+    main p { color: var(--muted); }
+    main strong { color: var(--text); font-weight: 650; }
+    .data-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-top: 20px; }
+    .data-item { border: 1px solid var(--stroke); background: rgba(21,27,44,.69); border-radius: 10px; padding: 13px 15px; font-size: 13px; color: #d2d9ec; line-height: 1.45; }
+    .data-item::before { content: "•"; color: var(--accent-2); margin-right: 9px; font-weight: 800; }
+    ul.clean { list-style: none; margin: 15px 0 0; padding: 0; display: grid; gap: 9px; }
+    ul.clean li { position: relative; padding-left: 21px; color: var(--muted); }
+    ul.clean li::before { content: ""; width: 6px; height: 6px; position: absolute; top: .76em; left: 2px; transform: rotate(45deg); background: var(--accent); border-radius: 1px; }
+    .callout { margin-top: 19px; padding: 19px 20px; background: linear-gradient(120deg, rgba(157,155,255,.085), rgba(100,215,222,.04)); border: 1px solid rgba(157,155,255,.18); border-radius: 13px; }
+    .callout strong { display: block; margin-bottom: 3px; }
+    .callout p { font-size: 14px; margin: 0; }
+    .footer { border-top: 1px solid var(--stroke); padding: 28px 0 38px; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; color: var(--subtle); font-size: 12px; }
+    .footer a { color: var(--muted); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    @media (max-width: 760px) {
+      .wrap { width: min(calc(100% - 36px), var(--max)); }
+      .hero { padding: 57px 0 40px; }
+      .layout { grid-template-columns: 1fr; gap: 31px; padding-top: 31px; padding-bottom: 60px; }
+      .toc { position: static; }
+      .toc nav { display: flex; overflow-x: auto; gap: 6px; padding-bottom: 9px; scrollbar-width: thin; }
+      .toc a { white-space: nowrap; background: var(--panel); border: 1px solid var(--stroke); }
+      .toc-label { margin-left: 0; margin-bottom: 10px; }
+      .aside-note { display: none; }
+      .section { padding-bottom: 24px; margin-bottom: 26px; }
+    }
+    @media (max-width: 480px) {
+      .data-grid { grid-template-columns: 1fr; }
+      .topbar-inner { min-height: 64px; }
+      .top-link { font-size: 12px; padding: 6px 9px; }
+      .brand { font-size: 14px; }
+      h1 { font-size: 2.6rem; }
+      .section-head { gap: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+    @media print {
+      :root { color-scheme: light; --bg: #fff; --text: #111; --muted: #333; --stroke: #ddd; --accent: #555; }
+      body { background: #fff; color: #111; }
+      .topbar, aside, .footer { display: none; }
+      .hero { padding: 15px 0; }
+      .layout { display: block; padding: 22px 0; }
+      .data-item, .callout { border-color: #ddd; background: #fff; color: #333; }
+      .gradient, h2, .num { color: #111; }
+      .section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="#top" class="brand" aria-label="Bloxd Fanatic, back to top"><span class="logo" aria-hidden="true">BF</span><span>Bloxd Fanatic</span></a>
+      <a class="top-link" href="https://github.com/lsvjdev/privacy-policy" rel="noopener noreferrer">View on GitHub ↗</a>
+    </div>
+  </header>
+
+  <div id="top" class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Privacy &amp; transparency</div>
+      <h1>Privacy <span class="gradient">Policy.</span></h1>
+      <p class="intro">How Bloxd Fanatic accesses, uses, and protects Discord data to support moderation and safety in the official Bloxd Discord server.</p>
+      <div class="meta">
+        <span>Last updated: <time datetime="2026-11-13">November 13, 2026</time></span>
+        <span>Discord moderation bot</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap layout">
+    <aside aria-label="Page navigation">
+      <div class="toc">
+        <span class="toc-label">On this page</span>
+        <nav aria-label="Privacy policy sections">
+          <a href="#overview">01 · Overview</a>
+          <a href="#data-access">02 · Data we access</a>
+          <a href="#data-usage">03 · Why we use it</a>
+          <a href="#messages">04 · Message content</a>
+          <a href="#storage">05 · Data storage</a>
+          <a href="#sharing">06 · Data sharing</a>
+          <a href="#opt-out">07 · User opt-out</a>
+          <a href="#removal">08 · Data removal</a>
+          <a href="#contact">09 · Contact</a>
+        </nav>
+        <div class="aside-note">
+          <span class="note-icon" aria-hidden="true">✓</span>
+          <strong>No sale of user data</strong>
+          <p>Moderation data is handled for server safety, not sold to third parties.</p>
+        </div>
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <section class="section" id="overview" aria-labelledby="h-overview">
+        <div class="section-head"><span class="num">01</span><h2 id="h-overview">Overview</h2></div>
+        <p><strong>Bloxd Fanatic</strong> is a Discord moderation bot used for the official Bloxd Discord server. This policy explains what data the bot may access, how that data is used, how it is protected, and how users can request a review or removal of moderation-related data.</p>
+      </section>
+
+      <section class="section" id="data-access" aria-labelledby="h-data-access">
+        <div class="section-head"><span class="num">02</span><h2 id="h-data-access">Data we access</h2></div>
+        <p>Bloxd Fanatic may access Discord data required for moderation and safety features, including:</p>
+        <div class="data-grid">
+          <div class="data-item">User profiles and IDs</div>
+          <div class="data-item">Moderator IDs</div>
+          <div class="data-item">Server IDs</div>
+          <div class="data-item">Channel IDs</div>
+          <div class="data-item">Message IDs</div>
+          <div class="data-item">Timestamps</div>
+          <div class="data-item">Moderation action details</div>
+          <div class="data-item">Report details</div>
+          <div class="data-item">Reasons provided by moderators or users</div>
+          <div class="data-item">Message content when needed for moderation, reporting, appeals, safety, or abuse prevention</div>
+        </div>
+      </section>
+
+      <section class="section" id="data-usage" aria-labelledby="h-data-usage">
+        <div class="section-head"><span class="num">03</span><h2 id="h-data-usage">Why we use this data</h2></div>
+        <p>Bloxd Fanatic uses this data for moderation and safety purposes, including:</p>
+        <ul class="clean">
+          <li>Processing warnings, mutes, unmutes, kicks, bans, and unbans</li>
+          <li>Creating staff-only moderation logs</li>
+          <li>Tracking moderation history</li>
+          <li>Supporting moderation and appeal reviews</li>
+          <li>Handling user reports and reviewing reported messages</li>
+          <li>Preventing abuse of the report system</li>
+        </ul>
+      </section>
+
+      <section class="section" id="messages" aria-labelledby="h-messages">
+        <div class="section-head"><span class="num">04</span><h2 id="h-messages">Message content</h2></div>
+        <p>Bloxd Fanatic may process message content when required for its moderation and safety features.</p>
+        <p>This may include reported messages, messages reviewed by staff, or messages connected to moderation actions.</p>
+      </section>
+
+      <section class="section" id="storage" aria-labelledby="h-storage">
+        <div class="section-head"><span class="num">05</span><h2 id="h-storage">Data storage &amp; security</h2></div>
+        <p>Bloxd Fanatic may store limited moderation-related data in a private database. Stored data may include the categories described in <a href="#data-access">Data we access</a>.</p>
+        <div class="callout">
+          <strong>Encryption of stored message content</strong>
+          <p>Stored Discord message content is encrypted at the application level using <strong>AES-256-GCM</strong> before being written to the database. The encryption key is stored separately from the database in environment configuration.</p>
+        </div>
+        <p style="margin-top: 17px;">Access to the host, bot files, database, and encryption key is restricted to authorized bot developers only.</p>
+      </section>
+
+      <section class="section" id="sharing" aria-labelledby="h-sharing">
+        <div class="section-head"><span class="num">06</span><h2 id="h-sharing">Data sharing</h2></div>
+        <p>We do not sell or unnecessarily share user data.</p>
+        <p>User and moderation data is accessible only to authorized server staff and bot developers as needed for moderation and safety purposes.</p>
+      </section>
+
+      <section class="section" id="opt-out" aria-labelledby="h-opt-out">
+        <div class="section-head"><span class="num">07</span><h2 id="h-opt-out">User opt-out</h2></div>
+        <p>Users cannot opt out of moderation-related processing while participating in the official Bloxd Discord server because the bot is used to enforce server rules and maintain server safety.</p>
+      </section>
+
+      <section class="section" id="removal" aria-labelledby="h-removal">
+        <div class="section-head"><span class="num">08</span><h2 id="h-removal">Data removal</h2></div>
+        <p>Users may contact the official Bloxd Discord server staff to request review or removal of moderation-related data where appropriate.</p>
+        <p>Some data may need to be kept when required for moderation history, appeal review, safety, or abuse prevention.</p>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="h-contact">
+        <div class="section-head"><span class="num">09</span><h2 id="h-contact">Contact</h2></div>
+        <p>For questions about this Privacy Policy or Bloxd Fanatic's data usage, contact the staff of the official Bloxd Discord server.</p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Bloxd Fanatic · Privacy Policy</span>
+      <span>Built for clarity. <a href="#top">Back to top ↑</a></span>
+    </div>
+  </footer>
+</body>
+</html>
