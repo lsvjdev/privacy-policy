@@ -29,13 +29,15 @@
     a { color: inherit; }
     a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 4px; border-radius: 4px; }
     .wrap { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
-    .topbar { border-bottom: 1px solid rgba(255,255,255,.07); background: rgba(11,14,23,.86); position: sticky; top: 0; z-index: 20; }
+    .topbar { border-bottom: 1px solid rgba(255,255,255,.07); background: rgba(11,14,23,.86); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 20; }
     .topbar-inner { display: flex; justify-content: space-between; align-items: center; min-height: 72px; gap: 16px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.025em; text-decoration: none; }
     .logo { display: block; width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--stroke); }
     .top-link { text-decoration: none; color: var(--muted); border: 1px solid var(--stroke); border-radius: 10px; padding: 7px 13px; font-size: 13px; font-weight: 600; transition: color .15s, border-color .15s; }
     .top-link:hover { color: white; border-color: #6b7199; }
     .hero { padding: 80px 0 54px; border-bottom: 1px solid rgba(255,255,255,.06); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 5px 12px; border-radius: 99px; border: 1px solid rgba(157,155,255,.24); background: rgba(157,155,255,.075); color: #b4b4ff; font-size: 12px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+    .eyebrow::before { content: none; }
     h1 { max-width: 850px; margin: 21px 0 15px; font-size: clamp(2.65rem, 6.4vw, 4.7rem); line-height: 1.09; font-weight: 810; letter-spacing: -.065em; }
     .gradient { color: var(--text); }
     .intro { max-width: 700px; margin: 0; font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--muted); line-height: 1.7; }
@@ -55,7 +57,8 @@
     main { min-width: 0; }
     .section { scroll-margin-top: 100px; padding: 0 0 32px; margin-bottom: 32px; border-bottom: 1px solid var(--stroke); }
     .section:last-of-type { border-bottom: 0; margin-bottom: 0; }
-    .section-head { display: flex; align-items: baseline; margin-bottom: 12px; }
+    .section-head { display: flex; align-items: baseline; gap: 13px; margin-bottom: 12px; }
+    .num { color: var(--accent); font-size: 12px; font-weight: 800; letter-spacing: .06em; }
     h2 { font-size: clamp(1.35rem, 2.5vw, 1.63rem); letter-spacing: -.035em; line-height: 1.35; font-weight: 780; margin: 0; }
     p { margin: 0 0 13px; }
     main p { color: var(--muted); }
@@ -100,20 +103,22 @@
       .hero { padding: 15px 0; }
       .layout { display: block; padding: 22px 0; }
       .data-item, .callout { border-color: #ddd; background: #fff; color: #333; }
-      .gradient, h2, .section { break-inside: avoid; }
+      .gradient, h2, .num { color: #111; }
+      .section { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a href="#top" class="brand" aria-label="Bloxd Fanatic, back to top"><img class="logo" src="./avatar.png" width="37" height="37" alt="" decoding="async"><span>Bloxd Fanatic</span></a>
+      <a href="./" class="brand" aria-label="Bloxd Fanatic home"><img class="logo" src="./avatar.png" width="37" height="37" alt="" decoding="async"><span>Bloxd Fanatic</span></a>
       <a class="top-link" href="https://github.com/lsvjdev/privacy-policy" rel="noopener noreferrer">View on GitHub ↗</a>
     </div>
   </header>
 
   <div id="top" class="hero">
     <div class="wrap">
+      <div class="eyebrow">Bloxd Fanatic</div>
       <h1>Privacy <span class="gradient">Policy</span></h1>
       <p class="intro">How Bloxd Fanatic accesses, uses, and protects Discord data to support moderation and safety in the official Bloxd Discord server.</p>
       <div class="meta">
@@ -128,15 +133,15 @@
       <div class="toc">
         <span class="toc-label">On this page</span>
         <nav aria-label="Privacy policy sections">
-          <a href="#overview">Overview</a>
-          <a href="#data-access">Data we access</a>
-          <a href="#data-usage">Why we use it</a>
-          <a href="#messages">Message content</a>
-          <a href="#storage">Data storage</a>
-          <a href="#sharing">Data sharing</a>
-          <a href="#opt-out">User opt-out</a>
-          <a href="#removal">Data removal</a>
-          <a href="#contact">Contact</a>
+          <a href="#overview">01 · Overview</a>
+          <a href="#data-access">02 · Data we access</a>
+          <a href="#data-usage">03 · Why we use it</a>
+          <a href="#messages">04 · Message content</a>
+          <a href="#storage">05 · Data storage</a>
+          <a href="#sharing">06 · Data sharing</a>
+          <a href="#opt-out">07 · User opt-out</a>
+          <a href="#removal">08 · Data removal</a>
+          <a href="#contact">09 · Contact</a>
         </nav>
         <div class="aside-note">
           <span class="note-icon" aria-hidden="true">✓</span>
@@ -148,12 +153,12 @@
 
     <main id="main-content">
       <section class="section" id="overview" aria-labelledby="h-overview">
-        <div class="section-head"><h2 id="h-overview">Overview</h2></div>
+        <div class="section-head"><span class="num">01</span><h2 id="h-overview">Overview</h2></div>
         <p><strong>Bloxd Fanatic</strong> is a Discord moderation bot used for the official Bloxd Discord server. This policy explains what data the bot may access, how that data is used, how it is protected, and how users can request a review or removal of moderation-related data.</p>
       </section>
 
       <section class="section" id="data-access" aria-labelledby="h-data-access">
-        <div class="section-head"><h2 id="h-data-access">Data we access</h2></div>
+        <div class="section-head"><span class="num">02</span><h2 id="h-data-access">Data we access</h2></div>
         <p>Bloxd Fanatic may access Discord data required for moderation and safety features, including:</p>
         <div class="data-grid">
           <div class="data-item">User profiles and IDs</div>
@@ -170,7 +175,7 @@
       </section>
 
       <section class="section" id="data-usage" aria-labelledby="h-data-usage">
-        <div class="section-head"><h2 id="h-data-usage">Why we use this data</h2></div>
+        <div class="section-head"><span class="num">03</span><h2 id="h-data-usage">Why we use this data</h2></div>
         <p>Bloxd Fanatic uses this data for moderation and safety purposes, including:</p>
         <ul class="clean">
           <li>Processing warnings, mutes, unmutes, kicks, bans, and unbans</li>
@@ -183,13 +188,13 @@
       </section>
 
       <section class="section" id="messages" aria-labelledby="h-messages">
-        <div class="section-head"><h2 id="h-messages">Message content</h2></div>
+        <div class="section-head"><span class="num">04</span><h2 id="h-messages">Message content</h2></div>
         <p>Bloxd Fanatic may process message content when required for its moderation and safety features.</p>
         <p>This may include reported messages, messages reviewed by staff, or messages connected to moderation actions.</p>
       </section>
 
       <section class="section" id="storage" aria-labelledby="h-storage">
-        <div class="section-head"><h2 id="h-storage">Data storage &amp; security</h2></div>
+        <div class="section-head"><span class="num">05</span><h2 id="h-storage">Data storage &amp; security</h2></div>
         <p>Bloxd Fanatic may store limited moderation-related data in a private database. Stored data may include the categories described in <a href="#data-access">Data we access</a>.</p>
         <div class="callout">
           <strong>Encryption of stored message content</strong>
@@ -199,24 +204,24 @@
       </section>
 
       <section class="section" id="sharing" aria-labelledby="h-sharing">
-        <div class="section-head"><h2 id="h-sharing">Data sharing</h2></div>
+        <div class="section-head"><span class="num">06</span><h2 id="h-sharing">Data sharing</h2></div>
         <p>We do not sell or unnecessarily share user data.</p>
         <p>User and moderation data is accessible only to authorized server staff and bot developers as needed for moderation and safety purposes.</p>
       </section>
 
       <section class="section" id="opt-out" aria-labelledby="h-opt-out">
-        <div class="section-head"><h2 id="h-opt-out">User opt-out</h2></div>
+        <div class="section-head"><span class="num">07</span><h2 id="h-opt-out">User opt-out</h2></div>
         <p>Users cannot opt out of moderation-related processing while participating in the official Bloxd Discord server because the bot is used to enforce server rules and maintain server safety.</p>
       </section>
 
       <section class="section" id="removal" aria-labelledby="h-removal">
-        <div class="section-head"><h2 id="h-removal">Data removal</h2></div>
+        <div class="section-head"><span class="num">08</span><h2 id="h-removal">Data removal</h2></div>
         <p>Users may contact the official Bloxd Discord server staff to request review or removal of moderation-related data where appropriate.</p>
         <p>Some data may need to be kept when required for moderation history, appeal review, safety, or abuse prevention.</p>
       </section>
 
       <section class="section" id="contact" aria-labelledby="h-contact">
-        <div class="section-head"><h2 id="h-contact">Contact</h2></div>
+        <div class="section-head"><span class="num">09</span><h2 id="h-contact">Contact</h2></div>
         <p>For questions about this Privacy Policy or Bloxd Fanatic's data usage, contact the staff of the official Bloxd Discord server.</p>
       </section>
     </main>
