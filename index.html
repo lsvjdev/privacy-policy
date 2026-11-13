@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0e17">
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/png" href="./favicon.png">
   <meta name="description" content="Read how Bloxd Fanatic, a Discord moderation bot for the official Bloxd Discord server, accesses, uses, protects, and handles moderation-related data.">
   <title>Privacy Policy · Bloxd Fanatic</title>
   <style>
@@ -25,21 +25,21 @@
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 90px; }
     body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font: 16px/1.7 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    body::before { content: ""; pointer-events: none; position: absolute; inset: 0 0 auto 0; height: 560px; z-index: -1; background: radial-gradient(ellipse 65% 75% at 75% 5%, rgba(102,88,216,.16), transparent 75%), radial-gradient(ellipse 45% 65% at 14% 10%, rgba(42,151,183,.10), transparent 78%); }
+    body::before { content: none; }
     a { color: inherit; }
     a:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 4px; border-radius: 4px; }
     .wrap { width: min(calc(100% - 48px), var(--max)); margin-inline: auto; }
     .topbar { border-bottom: 1px solid rgba(255,255,255,.07); background: rgba(11,14,23,.86); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 20; }
     .topbar-inner { display: flex; justify-content: space-between; align-items: center; min-height: 72px; gap: 16px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.025em; text-decoration: none; }
-    .logo { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 12px; background: linear-gradient(140deg, #918aff, #5bc6db); color: #0a0d18; font-size: 15px; font-weight: 900; letter-spacing: -.08em; box-shadow: 0 6px 22px rgba(121,116,252,.14); }
+    .logo { display: block; width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid var(--stroke); }
     .top-link { text-decoration: none; color: var(--muted); border: 1px solid var(--stroke); border-radius: 10px; padding: 7px 13px; font-size: 13px; font-weight: 600; transition: color .15s, border-color .15s; }
     .top-link:hover { color: white; border-color: #6b7199; }
     .hero { padding: 80px 0 54px; border-bottom: 1px solid rgba(255,255,255,.06); }
     .eyebrow { display: inline-flex; align-items: center; gap: 9px; padding: 5px 12px; border-radius: 99px; border: 1px solid rgba(157,155,255,.24); background: rgba(157,155,255,.075); color: #b4b4ff; font-size: 12px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 3px rgba(100,215,222,.12); }
+    .eyebrow::before { content: none; }
     h1 { max-width: 850px; margin: 21px 0 15px; font-size: clamp(2.65rem, 6.4vw, 4.7rem); line-height: 1.09; font-weight: 810; letter-spacing: -.065em; }
-    .gradient { color: #b3b0ff; }
+    .gradient { color: var(--text); }
     .intro { max-width: 700px; margin: 0; font-size: clamp(1rem, 2.2vw, 1.2rem); color: var(--muted); line-height: 1.7; }
     .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 11px; margin-top: 28px; font-size: 13px; color: var(--muted); }
     .meta span { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--stroke); padding: 7px 11px; border-radius: 9px; background: rgba(255,255,255,.025); }
@@ -50,7 +50,7 @@
     .toc nav { display: grid; gap: 3px; }
     .toc a { display: block; padding: 8px 11px; color: var(--muted); font-size: 13px; line-height: 1.4; text-decoration: none; border-radius: 8px; transition: .15s; }
     .toc a:hover, .toc a:focus-visible { background: rgba(157,155,255,.10); color: #dfdeff; }
-    .aside-note { border: 1px solid var(--stroke); background: var(--panel); padding: 18px; border-radius: 14px; margin-top: 30px; }
+    .aside-note { display: none; }
     .aside-note .note-icon { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 10px; background: rgba(100,215,222,.1); color: var(--accent-2); font-weight: 800; margin-bottom: 9px; }
     .aside-note strong { display: block; font-size: 13px; }
     .aside-note p { margin: 5px 0 0; font-size: 12px; line-height: 1.7; color: var(--muted); }
@@ -65,11 +65,11 @@
     main strong { color: var(--text); font-weight: 650; }
     .data-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; margin-top: 20px; }
     .data-item { border: 1px solid var(--stroke); background: rgba(21,27,44,.69); border-radius: 10px; padding: 13px 15px; font-size: 13px; color: #d2d9ec; line-height: 1.45; }
-    .data-item::before { content: "•"; color: var(--accent-2); margin-right: 9px; font-weight: 800; }
+    .data-item::before { content: "•"; color: var(--muted); margin-right: 9px; }
     ul.clean { list-style: none; margin: 15px 0 0; padding: 0; display: grid; gap: 9px; }
     ul.clean li { position: relative; padding-left: 21px; color: var(--muted); }
     ul.clean li::before { content: ""; width: 6px; height: 6px; position: absolute; top: .76em; left: 2px; transform: rotate(45deg); background: var(--accent); border-radius: 1px; }
-    .callout { margin-top: 19px; padding: 19px 20px; background: linear-gradient(120deg, rgba(157,155,255,.085), rgba(100,215,222,.04)); border: 1px solid rgba(157,155,255,.18); border-radius: 13px; }
+    .callout { margin-top: 19px; padding: 19px 20px; background: var(--panel); border: 1px solid var(--stroke); border-radius: 10px; }
     .callout strong { display: block; margin-bottom: 3px; }
     .callout p { font-size: 14px; margin: 0; }
     .footer { border-top: 1px solid var(--stroke); padding: 28px 0 38px; }
@@ -111,15 +111,15 @@
 <body>
   <header class="topbar">
     <div class="wrap topbar-inner">
-      <a href="#top" class="brand" aria-label="Bloxd Fanatic, back to top"><span class="logo" aria-hidden="true">BF</span><span>Bloxd Fanatic</span></a>
+      <a href="#top" class="brand" aria-label="Bloxd Fanatic, back to top"><img class="logo" src="./avatar.png" width="37" height="37" alt="" decoding="async"><span>Bloxd Fanatic</span></a>
       <a class="top-link" href="https://github.com/lsvjdev/privacy-policy" rel="noopener noreferrer">View on GitHub ↗</a>
     </div>
   </header>
 
   <div id="top" class="hero">
     <div class="wrap">
-      <div class="eyebrow">Privacy &amp; transparency</div>
-      <h1>Privacy <span class="gradient">Policy.</span></h1>
+      <div class="eyebrow">Bloxd Fanatic</div>
+      <h1>Privacy <span class="gradient">Policy</span></h1>
       <p class="intro">How Bloxd Fanatic accesses, uses, and protects Discord data to support moderation and safety in the official Bloxd Discord server.</p>
       <div class="meta">
         <span>Last updated: <time datetime="2026-11-13">November 13, 2026</time></span>
@@ -230,7 +230,7 @@
   <footer class="footer">
     <div class="wrap footer-inner">
       <span>© 2026 Bloxd Fanatic · Privacy Policy</span>
-      <span>Built for clarity. <a href="#top">Back to top ↑</a></span>
+      <span><a href="#top">Back to top ↑</a></span>
     </div>
   </footer>
 </body>
